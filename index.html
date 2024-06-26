@@ -33,6 +33,15 @@
       maxZoom: 20,
       minZoom: 2,
     }).addTo(map);
+    const geoJsonMarkerOptions = {
+      radius: 5,
+      fillColor: "#0097a3",
+      color: "#0097a3",
+      weight: 5,
+      opacity: 1,
+      fillOpacity: 0.8,
+    }
+    
 
     var EsriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
@@ -81,6 +90,11 @@
     const searchControl = new L.Control.Search ({
       layer: searchLayer,
       propertyName: 'Name'
+    });
+
+      const searchControl = new L.Control.Search ({
+      layer: searchLayer,
+      propertyName: 'Organization'
     });
 
     map.addControl(searchControl);
