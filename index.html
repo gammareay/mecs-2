@@ -64,26 +64,16 @@
       'Geography': EsriWorldImagery,
       'Dark': CartoDBDarkMatterNoLabels,
     }
-
     L.control.layers(baseMaps).addTo(map);
 
   // load GeoJSON from an external file
-  $.getJSON("mecs.geojson",function(data){
-      var guitarIcon = L.icon({
-      iconUrl: 'house.png',
-      iconSize: [40,30]
-    });
+    
     var drewbands = L.geoJson(data  ,{
       pointToLayer: function(feature,latlng){
   	     var marker = L.marker(latlng,{icon: guitarIcon});
          marker.bindPopup(feature.properties.Name + '<br/>' + feature.properties.Date + '<br/>' + feature.properties.Other + '<br/>' + feature.properties.Sex + '<br/>' + feature.properties.Citation);
          return marker;
       }
-    });
-
-    var clusters = L.markerClusterGroup();
-    clusters.addLayer(drewbands);
-    map.addLayer(clusters);
     });
 
   // JSON Data for search layer
