@@ -66,16 +66,6 @@
     }
     L.control.layers(baseMaps).addTo(map);
 
-  // load GeoJSON from an external file
-    
-    var drewbands = L.geoJson(data  ,{
-      pointToLayer: function(feature,latlng){
-  	     var marker = L.marker(latlng,{icon: guitarIcon});
-         marker.bindPopup(feature.properties.Name + '<br/>' + feature.properties.Date + '<br/>' + feature.properties.Other + '<br/>' + feature.properties.Sex + '<br/>' + feature.properties.Citation);
-         return marker;
-      }
-    });
-
   // JSON Data for search layer
     const searchLayer = L.geoJSON(women_mission, {
       onEachFeature: function(feature, layer) {
