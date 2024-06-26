@@ -75,10 +75,7 @@
          return marker;
       }
     });
-    var clusters = L.markerClusterGroup();
-    clusters.addLayer(drewbands);
-    map.addLayer(clusters);
-    });
+
   // JSON Data for search layer
     const searchLayer = L.geoJSON(women_mission, {
       onEachFeature: function(feature, layer) {
@@ -90,11 +87,6 @@
     const searchControl = new L.Control.Search ({
       layer: searchLayer,
       propertyName: 'Name'
-    });
-
-      const searchControl = new L.Control.Search ({
-      layer: searchLayer,
-      propertyName: 'Organization'
     });
 
     map.addControl(searchControl);
