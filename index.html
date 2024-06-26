@@ -76,6 +76,11 @@
       }
     });
 
+    var clusters = L.markerClusterGroup();
+    clusters.addLayer(drewbands);
+    map.addLayer(clusters);
+    });
+
   // JSON Data for search layer
     const searchLayer = L.geoJSON(women_mission, {
       onEachFeature: function(feature, layer) {
