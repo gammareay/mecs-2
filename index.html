@@ -52,7 +52,7 @@
     	maxZoom: 20
     });
     //GeoJSON Data
-    var women_mission = L.geoJSON(mecs, {
+    var women_mission = L.geoJSON(women_mission, {
       pointToLayer: function(feature, latlng({
         return L.circleMarker(latlng, geoJsonMarkerOptions)
       }
